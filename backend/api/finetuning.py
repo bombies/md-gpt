@@ -11,5 +11,5 @@ file_response = openai.File.create(
   purpose='fine-tune'
 )
 print(file_response)
-response = openai.FineTuningJob.create(training_file=file_response["id"], model="gpt-3.5-turbo", suffix="MDGPT")
+response = openai.FineTuningJob.create(training_file=file_response["id"], model="gpt-4o-2024-08-06", suffix="MDGPT")
 print(response)
