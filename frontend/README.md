@@ -13,8 +13,8 @@ MD-GPT empowers medical professionals, particularly doctors, to enhance their di
 To set up the MD-GPT project, follow these steps:
 
 Clone the repository from GitHub.
-1. Install the required dependencies by running npm install in the root directory.
-2. Start the development server by running npm run dev.
+1. Install the required dependencies by running `bun install` in the root directory.
+2. Start the development server by running `bun run dev`.
 3. Open your browser and navigate to http://localhost:3000.
 That’s it! You should now be able to use MD-GPT.
 
