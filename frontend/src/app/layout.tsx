@@ -10,7 +10,7 @@ const inter = Inter({subsets: ['latin']})
 
 export const metadata: Metadata = {
   title: 'MD-GPT',
-  description: 'A web based diagnosis assistant.',
+  description: 'A web based diagnosis assistant.'
 }
 
 export default async function RootLayout({

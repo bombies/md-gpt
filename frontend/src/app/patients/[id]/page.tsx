@@ -7,7 +7,8 @@ type Context = {
     }
 }
 
-const SpecificPatientPage: FC<Context> = ({params}) => {
+const SpecificPatientPage: FC<Context> = async props => {
+    const params = await props.params;
     return (
         <main>
             <SpecificPatientContext patientId={params.id}/>

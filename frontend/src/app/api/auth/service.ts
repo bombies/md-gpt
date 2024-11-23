@@ -6,7 +6,7 @@ import prisma from "@/app/libs/prisma";
 import {RegisterUserDto, registerUserDtoSchema} from "@/app/api/auth/types";
 import {Either, respond} from "@/app/api/utils";
 import {User} from "@prisma/client";
-import {NextResponse} from "next/server";
+import { NextResponse } from "next/server";
 import bcrypt from 'bcrypt';
 
 class AuthService {

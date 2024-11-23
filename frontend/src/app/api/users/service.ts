@@ -6,7 +6,7 @@ import {
 } from "@/app/api/users/types";
 import {Either, respond} from "@/app/api/utils";
 import {Patient, PatientConsultation} from "@prisma/client";
-import {NextResponse} from "next/server";
+import { NextResponse } from "next/server";
 import {Message} from "@/app/patients/[id]/components/consultations/ConsultationChat";
 
 class UserService {

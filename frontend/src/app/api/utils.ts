@@ -1,6 +1,6 @@
 import {getServerSession, Session} from "next-auth";
 import authService from "@/app/api/auth/service";
-import {NextResponse} from "next/server";
+import { NextResponse } from "next/server";
 import {z} from "zod";
 import axios from "axios";
 
