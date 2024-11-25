@@ -39,4 +39,6 @@ Before you get started, make sure you have the following prerequisites installed
 Now that you have the project set up, you can run the API using Uvicorn:
 
 ```bash
-uvicorn app:app --reload
+cd src
+fastapi dev app.py
+```

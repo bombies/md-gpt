@@ -1,6 +1,9 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from lib.kernelmemory import KernelMemory
+from kernelmemory import kernelmemory
+from dotenv import load_dotenv
+import os
 
 
 class Message(BaseModel):
@@ -13,8 +16,20 @@ class MessageItem(BaseModel):
     prompt: str
 
 
-km = KernelMemory()
+load_dotenv()
+
+origins = os.environ.get("ALLOWED_ORIGINS", "").split(",")
+
+km = kernelmemory.KernelMemory()
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.post("/prompt")
