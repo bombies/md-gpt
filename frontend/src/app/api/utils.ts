@@ -1,7 +1,7 @@
 import { Session } from "next-auth";
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { auth } from "./auth/[...nextauth]/route";
+import { auth } from "./auth/service";
 
 export class Either<S, E> {
     constructor(readonly success?: S, readonly error?: E) {}
