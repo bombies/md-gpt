@@ -18,11 +18,15 @@ import axios from "axios";
 import useSWRMutation from "swr/mutation";
 import { PostPromptDto } from "@/app/api/prompt/types";
 import toast from "react-hot-toast";
-import { CompletionResponse } from "../../../../api/prompt/service";
+import {
+    CompletionRelevantSource,
+    CompletionResponse,
+} from "../../../../api/prompt/service";
 
 export type Message = {
     role: "system" | "user";
     content: string;
+    relevantSources?: CompletionRelevantSource[];
 };
 
 type FetchResponseArgs = {
@@ -73,6 +77,7 @@ const ConsultationChat: FC<Props> = ({ messages, setMessages }) => {
                 addMessage({
                     role: "system",
                     content: response,
+                    relevantSources: res.data.relevantSources,
                 });
             })
             .catch((e) => {
@@ -88,6 +93,10 @@ const ConsultationChat: FC<Props> = ({ messages, setMessages }) => {
                     key={i}
                     role={message.role}
                     content={message.content}
+                    relevantSources={message.relevantSources?.slice(
+                        0,
+                        Math.min(message.relevantSources.length, 3)
+                    )}
                 />
             )),
         [messages]
@@ -97,7 +106,8 @@ const ConsultationChat: FC<Props> = ({ messages, setMessages }) => {
         <Fragment>
             <ScrollShadow
                 hideScrollBar
-                className="w-full space-y-3 max-h-96 overflow-y-auto"
+                className="w-full space-y-3 max-h-[35rem] overflow-y-auto"
+                size={20}
             >
                 {messageElements}
             </ScrollShadow>

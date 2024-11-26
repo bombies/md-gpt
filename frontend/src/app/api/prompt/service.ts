@@ -5,18 +5,20 @@ export type CompletionResponse = {
     question: string;
     noResult: boolean;
     text: string;
-    relevantSources: {
-        linl: string;
-        index: string;
-        documentId: string;
-        fileId: string;
-        sourceContentType: string;
-        sourceName: string;
-        sourceUrl: string;
-        partitions: {
-            text: string;
-            relevance: number;
-        }[];
+    relevantSources: CompletionRelevantSource[];
+};
+
+export type CompletionRelevantSource = {
+    link: string;
+    index: string;
+    documentId: string;
+    fileId: string;
+    sourceContentType: string;
+    sourceName: string;
+    sourceUrl: string;
+    partitions: {
+        text: string;
+        relevance: number;
     }[];
 };
 
